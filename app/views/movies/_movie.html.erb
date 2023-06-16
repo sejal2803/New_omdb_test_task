@@ -2,5 +2,5 @@
   <h1><%= @movie["Title"] %></h1>
   <p><strong>Year:</strong> <%= @movie["Year"] %></p>
   <p><strong>Plot:</strong> <%= @movie["Plot"] %></p>
-  <p><strong>Rating:</strong> <%= @movie["Ratings"][0]["Value"] %></p>
+  <p><strong>Rating:</strong> <%= @movie["Ratings"][0]["Value"] rescue 'No Ratings Available' %></p>
 </div>
