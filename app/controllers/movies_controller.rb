@@ -2,11 +2,7 @@
 
 class MoviesController < ApplicationController
   def index
-    @movies = if params[:search].present?
-                OmdbService.search_movies(params[:search])
-              else
-                []
-              end
+    @movies = OmdbService.search_movies(params[:search]) if params[:search].present?
   end
 
   def show

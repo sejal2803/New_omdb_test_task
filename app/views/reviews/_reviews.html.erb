@@ -1,0 +1,7 @@
+<% if @reviews.present? %>
+  <% @reviews.each do |review| %>
+    <%= render partial: 'review', locals: { review: review } %>
+  <% end %>
+<% else %>
+  <p>No reviews available.</p>
+<% end %>

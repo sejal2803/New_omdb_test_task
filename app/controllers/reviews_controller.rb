@@ -1,7 +1,13 @@
 # frozen_string_literal: true
 
 class ReviewsController < ApplicationController
-  before_action :find_movie, only: %i[new create]
+  before_action :find_movie, only: %i[index new create]
+
+  def index
+    @reviews = @movie.reviews
+    @review = Review.new
+    @movie = OmdbService.get_movie(@movie.imdb_id)
+  end
 
   def new
     @review = Review.new
@@ -9,12 +15,10 @@ class ReviewsController < ApplicationController
 
   def create
     @review = @movie.reviews.build(review_params)
+    @movie = OmdbService.get_movie(@movie.imdb_id)
+    @review.save
 
-    if @review.save
-      redirect_to movie_path(@movie.imdb_id)
-    else
-      render :new
-    end
+    redirect_to movie_reviews_path(@movie['imdbID'])
   end
 
   private

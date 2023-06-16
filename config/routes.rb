@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   resources :movies do
-    resources :reviews, only: %i[new create]
+    resources :reviews, only: %i[index new create]
   end
 
   root 'movies#index'
