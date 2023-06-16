@@ -18,6 +18,7 @@ class ReviewsController < ApplicationController
     @movie = OmdbService.get_movie(@movie.imdb_id)
     @review.save
 
+    flash[:error] = @review.errors.full_messages.join(', ') if @review.errors.any?
     redirect_to movie_reviews_path(@movie['imdbID'])
   end
 
