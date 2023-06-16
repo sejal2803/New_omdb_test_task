@@ -1,14 +1,12 @@
-version: '3'
+version: "3"
 
 services:
   db:
     image: postgres:11
-
     environment:
-      POSTGRES_USER: developer
-      POSTGRES_PASSWORD: password # set the Postgres superuser password
-      POSTGRES_DB: omdb_test_task_development # set the name of the development database
-
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: omdb_test_task_development
 
   web:
     build: .
@@ -20,7 +18,7 @@ services:
     depends_on:
       - db
     environment:
-      DATABASE_URL: postgres://developer:password@db:5432/omdb_test_task_development
+      DATABASE_URL: postgres://postgres:postgres@db:5432/omdb_test_task_development
 
 volumes:
   postgres_data:
