@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>OmdbTestTask</title>
+    <title>The Open Movie Database - OMDB Rails App</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,7 +12,8 @@
   </head>
 
   <body>
-    <div class="container bg-light py-5">
+    <div class="container bg-light">
+      <%= render 'shared/header' %>
       <%= render 'shared/flash' %>
       <div class="row justify-content-center">
         <%= yield %>
