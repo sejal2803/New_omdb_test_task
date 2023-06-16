@@ -49,3 +49,12 @@ The `Review` model is used to store reviews for movies. It contains the followin
 
 ### External API
 The project uses the OMDB API (<https://www.omdbapi.com/>) to search for movies based on title. The IMDb ID is stored in the `imdb_id` field of the `Movie` model. The API key for the OMDB API should be configured in the Rails credentials file (`config/credentials.yml.enc`).
+
+### Things can be improved in the future
+1. Avoid memory_store for cache instead use redis.
+2. The movie's index page can be modified to use Ajax to get search results.
+3. Exisiting models can be extended with more functionality
+4. Sidekiq can be used to get latest movies.
+5. It might be possible to add more functionality to the search
+6. Use scss for Styling & JavaScript can be better used with jQuery plugin
+7. Add Test Suite and test coverage for the code base to improve reliability
