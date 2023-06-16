@@ -11,7 +11,9 @@ class OmdbService
     end
 
     def get_movie(imdb_id)
-      perform_request("/?i=#{imdb_id}")
+      Rails.cache.fetch("omdb_movie_#{imdb_id}", expires_in: 1.day) do
+        perform_request("/?i=#{imdb_id}")
+      end
     end
 
     private
