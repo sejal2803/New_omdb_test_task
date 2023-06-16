@@ -6,7 +6,7 @@ class MoviesController < ApplicationController
     if params[:search].present?
       search_param = URI.encode_www_form_component(params[:search])
       response = HTTParty.get("http://www.omdbapi.com/?s=#{search_param}&apikey=#{OMDB_API_KEY}")
-      @movies = JSON.parse(response.body)["Search"]
+      @movies = JSON.parse(response.body)['Search']
     else
       @movies = []
     end
@@ -17,7 +17,4 @@ class MoviesController < ApplicationController
     response = HTTParty.get("http://www.omdbapi.com/?i=#{imdb_id}&apikey=#{OMDB_API_KEY}")
     @movie = JSON.parse(response.body)
   end
-  
 end
-
-
